@@ -5,7 +5,10 @@ import re
 regex = '^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$'
 
 def check(email):
-    if(re.search(regex, email)):
+    if re.search(regex, email):
+        return True
+    else:
+        return False
         
 scraper = cloudscraper.create_scraper()  #module to bypass Cloudflare's anti-bot page (also known as "I'm Under Attack Mode", or IUAM)
 
@@ -17,13 +20,11 @@ print("533 million Facebook users' phone numbers and email addresses have been l
 data = input("Input the mail/phone number you want to check:")
 
 
-while not ("+" in data or "@" in data):
+while not "+" in data or "@" in data:
     if data.lower().islower():                  #mail
-        input("Invalid email! Try again:")
-    else:                                   #phone number    
-        input("Invalid phone number! Try again:")
-
-
+        data = input("Invalid email! Try again:")
+    else:                                   #phone number 
+        data = input("Invalid phone number! Try again:")
 
 formatedMail = data.replace('@','%40')
 url = url + formatedMail
