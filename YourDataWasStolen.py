@@ -16,12 +16,13 @@ print("533 million Facebook users' phone numbers and email addresses have been l
 
 data = input("Input the mail/phone number you want to check:")
 
-"""
+
 while not ("+" in data or "@" in data):
     if data.lower().islower():                  #mail
-        input("Invalid email! Try again")
+        input("Invalid email! Try again:")
     else:                                   #phone number    
-"""
+        input("Invalid phone number! Try again:")
+
 
 
 formatedMail = data.replace('@','%40')
